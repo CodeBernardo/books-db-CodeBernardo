@@ -1,10 +1,12 @@
-CREATE  TABLE authors (
+CREATE  TABLE authors 
+(
 	"id" SERIAL PRIMARY KEY,
 	"name" VARCHAR(200) NOT NULL,
 	"bio" TEXT NOT NULL
 );
 
-CREATE TABLE contact_infos (
+CREATE TABLE contact_infos
+(
 	"id" SERIAL PRIMARY KEY,
 	"phone" VARCHAR(20),
 	"email" VARCHAR(200) NOT NULL,
@@ -12,18 +14,20 @@ CREATE TABLE contact_infos (
 	FOREIGN KEY ("authorId") REFERENCES authors ("id") ON DELETE CASCADE
 );
 
-CREATE TABLE books (
+CREATE TABLE books 
+(
 	"id" SERIAL PRIMARY KEY,
 	"name" VARCHAR(200) NOT NULL,
 	"pages" INTEGER NOT NULL,
 	"createdAt" TIMESTAMP NOT NULL,
 	"updatedAt" TIMESTAMP NOT NULL,
-	"authoId" INTEGER,
-	FOREIGN KEY ("authoId") REFERENCES authors ("id") ON DELETE SET NULL 
+	"authorId" INTEGER,
+	FOREIGN KEY ("authorId") REFERENCES authors ("id") ON DELETE SET NULL 
 );
 
 
-CREATE TABLE categories (
+CREATE TABLE categories 
+(
 	"id" SERIAL PRIMARY KEY,
 	"name" VARCHAR NOT NULL,
 	"createdAt" TIMESTAMP NOT NULL,
@@ -31,7 +35,8 @@ CREATE TABLE categories (
 );
 
 
-CREATE TABLE books_categories (
+CREATE TABLE books_categories 
+(
 	"id" SERIAL PRIMARY KEY,
 	"bookId" INTEGER NOT NULL,
 	"categoryId" INTEGER NOT NULL,
