@@ -3,7 +3,8 @@ CREATE  TABLE authors
 	"id" SERIAL PRIMARY KEY,
 	"name" VARCHAR(200) NOT NULL,
 	"bio" TEXT NOT NULL
-);
+)
+;
 
 CREATE TABLE contact_infos
 (
@@ -12,7 +13,8 @@ CREATE TABLE contact_infos
 	"email" VARCHAR(200) NOT NULL,
 	"authorId" INTEGER UNIQUE NOT NULL,
 	FOREIGN KEY ("authorId") REFERENCES authors ("id") ON DELETE CASCADE
-);
+)
+;
 
 CREATE TABLE books 
 (
@@ -23,16 +25,18 @@ CREATE TABLE books
 	"updatedAt" TIMESTAMP NOT NULL,
 	"authorId" INTEGER,
 	FOREIGN KEY ("authorId") REFERENCES authors ("id") ON DELETE SET NULL 
-);
+)
+;
 
 
 CREATE TABLE categories 
 (
 	"id" SERIAL PRIMARY KEY,
-	"name" VARCHAR NOT NULL,
+	"name" VARCHAR(200) NOT NULL,
 	"createdAt" TIMESTAMP NOT NULL,
 	"updatedAt" TIMESTAMP NOT NULL
-);
+)
+;
 
 
 CREATE TABLE books_categories 
@@ -42,4 +46,5 @@ CREATE TABLE books_categories
 	"categoryId" INTEGER NOT NULL,
 	FOREIGN KEY ("bookId") REFERENCES books ("id") ON DELETE CASCADE,
 	FOREIGN KEY ("categoryId") REFERENCES categories ("id") ON DELETE CASCADE
-);
+)
+;

@@ -1,9 +1,12 @@
 UPDATE
   books
 SET
-  "name" = 'Harry Potter e o Prisioneiro de Azkaban'
+  "name" = 'Harry Potter e o Prisioneiro de Azkaban',
+  "updatedAt" = NOW()
 WHERE
-  "name" ILIKE 'Harry Potter'
+  "name"
+ILIKE
+  'Harry Potter'
 RETURNING
   * 
 ;
@@ -18,9 +21,12 @@ SET
       authors
     WHERE
       "name" = 'Eiichiro Oda'
-  )
+  ),
+  "updatedAt" = NOW()
 WHERE
-  "name" ILIKE 'One Piece%'
+  "name" 
+ILIKE 
+  'One Piece%'
 RETURNING 
   * 
 ;

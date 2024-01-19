@@ -28,12 +28,12 @@ FROM
   books AS B
 JOIN
   books_categories AS BC
-    ON 
-      B."id" = BC."bookId"
+ON 
+  B."id" = BC."bookId"
 JOIN
   categories AS C
-    ON
-      C."id" = BC."categoryId"
+ON
+  C."id" = BC."categoryId"
 ;
 
 SELECT 
@@ -49,7 +49,7 @@ FROM
   books AS B
 JOIN 
   authors as A 
-    ON 
-      B."authorId" = A."id"
+ON 
+  B."authorId" = A."id"
 ;
 
